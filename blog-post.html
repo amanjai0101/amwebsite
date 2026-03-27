@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding Dendritic Morphology in Electrolytic Copper Powder | Arti Metal Blog</title>
+  <meta name="description" content="Learn what dendritic morphology is, why it matters for friction materials, powder metallurgy, and diamond tools, and how Arti Metal controls it in production." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23B87333'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='18' font-weight='bold' font-family='serif'>A</text></svg>" />
+  <style>
+    .post-content { max-width: 760px; }
+    .post-content h2 { font-size: 1.5rem; color: var(--navy); margin: 2.5rem 0 1rem; }
+    .post-content h3 { font-size: 1.15rem; color: var(--navy); margin: 1.75rem 0 0.75rem; font-family: var(--font-main); font-weight: 700; }
+    .post-content p { margin-bottom: 1.25rem; line-height: 1.8; }
+    .post-content ul { margin: 0.75rem 0 1.25rem 1.5rem; list-style: disc; }
+    .post-content ul li { margin-bottom: 0.4rem; color: var(--gray-dark); line-height: 1.7; }
+    .post-hero-img { width: 100%; height: 380px; object-fit: cover; object-position: center; border-radius: var(--radius-lg); margin-bottom: 2rem; }
+    .post-meta { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--gray-light); }
+    .post-meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; color: var(--gray); }
+    .key-takeaways { background: var(--copper-pale); border-radius: var(--radius-lg); padding: 1.75rem; margin: 2rem 0; }
+    .key-takeaways h4 { color: var(--copper-dark); margin-bottom: 1rem; font-size: 1rem; }
+    .key-takeaways ul { margin: 0; list-style: none; }
+    .key-takeaways ul li { padding: 0.3rem 0; color: var(--copper-dark); font-size: 0.9rem; display: flex; gap: 0.5rem; }
+    .key-takeaways ul li::before { content: '✓'; font-weight: 700; flex-shrink: 0; }
+    .post-share { display: flex; align-items: center; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid var(--gray-light); margin-top: 2rem; }
+    .share-label { font-size: 0.875rem; font-weight: 600; color: var(--navy); }
+    .share-btn { padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; border: 1.5px solid var(--gray-light); color: var(--gray-dark); transition: var(--transition); }
+    .share-btn:hover { border-color: var(--copper); color: var(--copper); }
+    .related-posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .breadcrumb--blog a { color: var(--gray); }
+    .breadcrumb--blog span { color: #9ca3af; }
+    .breadcrumb--blog .current { color: var(--copper-dark); }
+    @media(max-width:768px) { .related-posts { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-icon"><img src="img/am_logo03-revised.png" alt="Arti Metal Logo" class="logo-img" /></div><div><div class="logo-text">Arti Metal</div><div class="logo-sub">A subsidiary of Roop Metals Pvt Ltd</div></div></a>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a>
+      <a href="products.html" class="nav-link">Products</a><a href="applications.html" class="nav-link">Applications</a>
+      <a href="quality.html" class="nav-link">Quality</a><a href="resources.html" class="nav-link">Resources</a>
+      <a href="blog.html" class="nav-link active">Blog</a><a href="contact.html" class="nav-link">Contact</a>
+      <a href="quote.html" class="nav-cta">Request Quote</a>
+    </nav>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav">
+  <button class="mobile-nav-close">✕</button>
+  <a href="index.html" class="mobile-nav-link">Home</a><a href="about.html" class="mobile-nav-link">About Us</a>
+  <a href="products.html" class="mobile-nav-link">Products</a><a href="applications.html" class="mobile-nav-link">Applications</a>
+  <a href="quality.html" class="mobile-nav-link">Quality</a><a href="resources.html" class="mobile-nav-link">Resources</a>
+  <a href="blog.html" class="mobile-nav-link">Blog</a><a href="contact.html" class="mobile-nav-link">Contact</a>
+  <a href="quote.html" class="mobile-nav-link" style="color:var(--copper);font-weight:700;">Request Quote</a>
+</div>
+
+<div style="padding-top:5rem;"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-layout">
+      <!-- ARTICLE -->
+      <article class="post-content">
+        <div class="breadcrumb breadcrumb--blog" style="margin-bottom:1.5rem;">
+          <a href="index.html">Home</a><span>/</span><a href="blog.html">Blog</a><span>/</span><span class="current" id="crumb-title">Article</span>
+        </div>
+        <span class="badge badge-copper" style="margin-bottom:1rem;" id="post-category">Technical Guides</span>
+        <h1 style="font-size:clamp(1.6rem,4vw,2.4rem);color:var(--navy);margin-bottom:1.25rem;" id="post-title">Loading article...</h1>
+        <div class="post-meta">
+          <div class="post-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span id="post-date">-</span></div>
+          <div class="post-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Arti Metal Technical Team</div>
+          <div class="post-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg> <span id="post-read-time">-</span></div>
+        </div>
+
+        <img src="" alt="" class="post-hero-img" id="post-image" loading="lazy" />
+        <div id="post-content"></div>
+
+        <div class="key-takeaways">
+          <h4>Key Takeaways</h4>
+          <ul id="post-takeaways"></ul>
+        </div>
+
+        <div class="post-share">
+          <span class="share-label">Share this article:</span>
+          <a href="#" class="share-btn">LinkedIn</a>
+          <a href="#" class="share-btn">Twitter / X</a>
+          <a href="mailto:?subject=Interesting article from Arti Metal&body=Check out this article on dendritic morphology in copper powder: " class="share-btn">Email</a>
+        </div>
+
+        <!-- CTA -->
+        <div style="background:var(--navy);border-radius:var(--radius-lg);padding:2rem;margin-top:2rem;text-align:center;">
+          <h3 style="color:var(--white);margin-bottom:0.75rem;">Have questions about this topic?</h3>
+          <p style="color:rgba(255,255,255,0.75);margin-bottom:1.5rem;font-size:0.95rem;">Our technical team can help you select the right grade and provide application-specific guidance.</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary">Contact Technical Team</a>
+            <a href="quote.html" class="btn btn-outline-white">Request a Quote</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+        <div class="sidebar-widget reveal">
+          <div class="sidebar-title">Related Products</div>
+          <ul class="footer-links">
+            <li><a href="products.html#grade-a118" style="color:var(--gray-dark);">Grade A118 – Ultra-Fine (Max Surface Area)</a></li>
+            <li><a href="products.html#grade-a123" style="color:var(--gray-dark);">Grade A123 – Fine Dendritic</a></li>
+            <li><a href="products.html#grade-a128" style="color:var(--gray-dark);">Grade A128 – Standard Fine</a></li>
+            <li><a href="products.html#grade-a135" style="color:var(--gray-dark);">Grade A135 – Medium (Free-Flowing)</a></li>
+            <li><a href="products.html#grade-a200" style="color:var(--gray-dark);">Grade A200 – Coarse</a></li>
+            <li><a href="products.html#grade-a210" style="color:var(--gray-dark);">Grade A210 – Extra Coarse</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget reveal">
+          <div class="sidebar-title">Related Articles</div>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <a href="blog-post.html?post=friction-materials-guide" style="display:flex;gap:0.75rem;align-items:flex-start;text-decoration:none;">
+              <div style="width:48px;height:48px;background:var(--copper-pale);border-radius:var(--radius);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.25rem;">🔧</div>
+              <div><div style="font-size:0.85rem;font-weight:600;color:var(--navy);line-height:1.4;">Copper Powder in Friction Materials</div><div style="font-size:0.75rem;color:var(--gray);margin-top:0.2rem;">8 min read</div></div>
+            </a>
+            <a href="blog-post.html?post=grade-selection-guide" style="display:flex;gap:0.75rem;align-items:flex-start;text-decoration:none;">
+              <div style="width:48px;height:48px;background:var(--copper-pale);border-radius:var(--radius);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.25rem;">⚙️</div>
+              <div><div style="font-size:0.85rem;font-weight:600;color:var(--navy);line-height:1.4;">Choosing the Right Grade</div><div style="font-size:0.75rem;color:var(--gray);margin-top:0.2rem;">5 min read</div></div>
+            </a>
+            <a href="blog-post.html?post=electrolytic-vs-atomized" style="display:flex;gap:0.75rem;align-items:flex-start;text-decoration:none;">
+              <div style="width:48px;height:48px;background:var(--copper-pale);border-radius:var(--radius);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.25rem;">⚗️</div>
+              <div><div style="font-size:0.85rem;font-weight:600;color:var(--navy);line-height:1.4;">Electrolytic vs Atomized Powder</div><div style="font-size:0.75rem;color:var(--gray);margin-top:0.2rem;">7 min read</div></div>
+            </a>
+          </div>
+        </div>
+        <div class="sidebar-widget reveal" style="background:var(--navy);border-color:var(--navy);">
+          <div class="sidebar-title" style="color:var(--copper-light);">Request a Sample</div>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.7);margin-bottom:1rem;">Evaluate our copper powder grades in your own application. Samples available with COA and TDS.</p>
+          <a href="quote.html" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Request Sample</a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- RELATED POSTS -->
+    <div style="margin-top:4rem;">
+      <h2 style="color:var(--navy);margin-bottom:2rem;">More Articles</h2>
+      <div class="related-posts">
+        <div class="blog-card">
+          <img src="img/app-brakes.jpg" alt="Copper in friction materials" class="blog-card-real-img" loading="lazy" />
+          <div class="blog-card-body">
+            <div class="blog-meta"><span class="blog-cat">Application Stories</span><span class="blog-read">8 min read</span></div>
+            <div class="blog-card-title">Complete Guide to Copper Powder in Friction Materials</div>
+            <a href="blog-post.html?post=friction-materials-guide" class="btn btn-secondary btn-sm mt-2">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="img/app-pm-parts.jpg" alt="Powder metallurgy process" class="blog-card-real-img" loading="lazy" />
+          <div class="blog-card-body">
+            <div class="blog-meta"><span class="blog-cat">Technical Guides</span><span class="blog-read">5 min read</span></div>
+            <div class="blog-card-title">Choosing the Right Copper Powder Grade for Your Application</div>
+            <a href="blog-post.html?post=grade-selection-guide" class="btn btn-secondary btn-sm mt-2">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="img/quality-testing.jpg" alt="Quality testing standards" class="blog-card-real-img" loading="lazy" />
+          <div class="blog-card-body">
+            <div class="blog-meta"><span class="blog-cat">Quality &amp; Testing</span><span class="blog-read">6 min read</span></div>
+            <div class="blog-card-title">Quality Testing Standards: IS vs ASTM Explained</div>
+            <a href="blog-post.html?post=quality-standards-is-vs-astm" class="btn btn-secondary btn-sm mt-2">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const posts = {
+      "dendritic-morphology": {
+        title: "Understanding Dendritic Morphology in Electrolytic Copper Powder",
+        category: "Technical Guides",
+        date: "March 15, 2026",
+        readTime: "6 min read",
+        image: "img/sem-dendritic.jpg",
+        imageAlt: "Microscopy and copper powder morphology research",
+        content: `
+          <p>Dendritic morphology refers to tree-like branching crystals formed during electrochemical deposition. In copper powder, this morphology is directly linked to surface area, green strength, and compaction response.</p>
+          <h2>Why It Matters in Industry</h2>
+          <p>Compared with spherical powder, dendritic copper often provides stronger mechanical interlocking during compaction and faster sintering response in many PM routes.</p>
+          <h2>Process Variables That Drive Morphology</h2>
+          <ul><li>Current density and overpotential</li><li>Electrolyte chemistry and Cu2+ availability</li><li>Temperature, agitation, and cathode hydrodynamics</li><li>Post-treatment and oxygen control</li></ul>
+          <h2>References</h2>
+          <ul><li>Paunovic & Schlesinger, <em>Fundamentals of Electrochemical Deposition</em>, Wiley.</li><li>ASM Handbook Vol. 7, <em>Powder Metal Technologies and Applications</em>.</li><li>German, <em>Powder Metallurgy and Particulate Materials Processing</em>, MPIF.</li></ul>
+        `,
+        takeaways: ["Dendritic structure is central to PM behavior.", "Morphology control requires stable process windows.", "Use grade selection based on application demands."]
+      },
+      "friction-materials-guide": {
+        title: "Complete Guide to Copper Powder in Friction Materials",
+        category: "Application Stories",
+        date: "March 8, 2026",
+        readTime: "8 min read",
+        image: "img/app-brakes.jpg",
+        imageAlt: "Copper powder in brake friction materials",
+        content: `
+          <p>Copper powder contributes to thermal transfer, friction film stability, and structural reinforcement in brake and clutch formulations.</p>
+          <h2>Performance Roles</h2>
+          <ul><li>Heat dissipation in repeated braking cycles</li><li>Stable tribofilm development</li><li>Wear and noise behavior tuning</li></ul>
+          <h2>Formulation Considerations</h2>
+          <p>Particle size distribution, morphology, and oxygen level should be matched to binder chemistry, pad architecture, and target duty cycle.</p>
+          <h2>References</h2>
+          <ul><li>Blau, <em>Compositions, Functions, and Testing of Friction Brake Materials</em>, ORNL report.</li><li>Tribology International review papers on copper-containing friction materials.</li><li>SAE technical papers on brake pad materials and tribofilm behavior.</li></ul>
+        `,
+        takeaways: ["Copper influences heat, wear, and stability.", "Grade choice should match braking duty profile.", "Testing must include fade/recovery and wear mapping."]
+      },
+      "grade-selection-guide": {
+        title: "Choosing the Right Copper Powder Grade for Your Application",
+        category: "Technical Guides",
+        date: "March 1, 2026",
+        readTime: "5 min read",
+        image: "img/rightdecision.jpg",
+        imageAlt: "Grade selection and process planning",
+        content: `
+          <p>Grade selection should begin with process constraints first: flow, compaction route, target density, and downstream thermal cycle.</p>
+          <h2>Primary Selection Axes</h2>
+          <ul><li>Apparent density and Hall flow behavior</li><li>Surface area and reactivity requirements</li><li>Compaction pressure window and geometry complexity</li></ul>
+          <h2>Qualification Workflow</h2>
+          <p>Start with two close grades, run pilot compaction/sintering, compare density scatter, mechanical performance, and cost-to-performance ratio.</p>
+          <h2>References</h2>
+          <ul><li>MPIF standards for PM characterization methods.</li><li>ASTM B212/B213/B214 methods for apparent density, flow, and sieve analysis.</li><li>ASM Handbook Vol. 7.</li></ul>
+        `,
+        takeaways: ["Choose by process needs, not just nominal chemistry.", "Validate in pilot scale before full conversion.", "Use ASTM/IS test parity for supplier comparison."]
+      },
+      "electrolytic-vs-atomized": {
+        title: "Electrolytic vs Atomized Copper Powder: When to Use Each",
+        category: "Technical Guides",
+        date: "February 22, 2026",
+        readTime: "7 min read",
+        image: "img/atomizedorelectolytic.jpg",
+        imageAlt: "Comparative powder morphology study",
+        content: `
+          <p>Electrolytic powders are commonly dendritic; atomized powders are often more spherical. This morphology gap drives most performance differences.</p>
+          <h2>Where Electrolytic Wins</h2>
+          <ul><li>Interlocking and green strength critical applications</li><li>Systems needing high active surface area</li></ul>
+          <h2>Where Atomized Wins</h2>
+          <ul><li>High-flow feed applications</li><li>Processes prioritizing packing and spreadability</li></ul>
+          <h2>References</h2>
+          <ul><li>German, <em>Powder Metallurgy Science</em>.</li><li>ASM Handbook Vol. 7 powder production chapters.</li><li>Electrochemical deposition texts and PM review literature.</li></ul>
+        `,
+        takeaways: ["Morphology is the first decision lever.", "Electrolytic and atomized are complementary, not substitutes.", "Trial both when process window is unclear."]
+      },
+      "quality-standards-is-vs-astm": {
+        title: "Quality Testing Standards for Metal Powders: IS vs ASTM Explained",
+        category: "Quality & Testing",
+        date: "February 15, 2026",
+        readTime: "6 min read",
+        image: "img/quality-testing.jpg",
+        imageAlt: "Laboratory testing and standards compliance",
+        content: `
+          <p>Comparable interpretation of IS and ASTM methods helps buyers evaluate suppliers fairly and avoid specification gaps.</p>
+          <h2>Critical Tests</h2>
+          <ul><li>Apparent density</li><li>Flow rate</li><li>Sieve size distribution</li><li>Chemical purity/impurity profile</li></ul>
+          <h2>Documentation Best Practice</h2>
+          <p>COA should include method version, sampling plan, batch identity, and uncertainty context where applicable.</p>
+          <h2>References</h2>
+          <ul><li>ASTM B212, B213, B214 official standards.</li><li>Relevant IS powder metallurgy standards (IS 4848, IS 460/440 references as used in product specs).</li><li>ISO/IEC guidance on laboratory quality systems.</li></ul>
+        `,
+        takeaways: ["Standards mapping avoids false equivalence.", "Method details matter as much as results.", "COA transparency improves qualification speed."]
+      },
+      "diamond-tools-copper-matrix": {
+        title: "Diamond Tool Manufacturing: The Role of Copper Matrix",
+        category: "Application Stories",
+        date: "February 8, 2026",
+        readTime: "7 min read",
+        image: "img/app-diamond-tools.jpg",
+        imageAlt: "Diamond tool matrix manufacturing",
+        content: `
+          <p>Copper-containing matrices support heat transfer and controlled wear, both crucial for predictable diamond exposure and tool life.</p>
+          <h2>Matrix Design Objectives</h2>
+          <ul><li>Hold diamonds without premature pull-out</li><li>Wear at controlled rate for self-sharpening</li><li>Maintain thermal stability at operating speed</li></ul>
+          <h2>References</h2>
+          <ul><li>Journal of Materials Processing Technology papers on diamond tool matrix design.</li><li>Powder metallurgy texts on Cu-based matrix sintering.</li><li>Industry handbooks on bonded abrasives and cutting tools.</li></ul>
+        `,
+        takeaways: ["Copper supports thermal and wear balance.", "Matrix behavior dictates cutting consistency.", "Grade and PSD tuning reduce field variability."]
+      },
+      "environmental-regulations-friction": {
+        title: "Environmental Regulations and Copper in Friction Materials",
+        category: "Industry News",
+        date: "February 1, 2026",
+        readTime: "5 min read",
+        image: "img/environment.jpg",
+        imageAlt: "Regulation and compliance review",
+        content: `
+          <p>Regional regulations increasingly influence copper loading in selected brake categories, especially where runoff concerns are prioritized.</p>
+          <h2>What Manufacturers Should Do</h2>
+          <ul><li>Track target-market legislation by product class</li><li>Validate reformulations with full tribology and NVH checks</li><li>Maintain clear compliance documentation in customer dossiers</li></ul>
+          <h2>References</h2>
+          <ul><li>California and Washington state brake friction regulations.</li><li>SAE and tribology literature on low-copper friction systems.</li><li>Industry association compliance guides.</li></ul>
+        `,
+        takeaways: ["Compliance is market-specific.", "Reformulation requires full performance revalidation.", "Documentation readiness is a competitive advantage."]
+      },
+      "quality-control-lab": {
+        title: "Behind the Scenes: Our Quality Control Laboratory",
+        category: "Quality & Testing",
+        date: "January 25, 2026",
+        readTime: "4 min read",
+        image: "img/quality-testing.jpg",
+        imageAlt: "Copper powder QC laboratory workflow",
+        content: `
+          <p>Reliable powder performance starts with disciplined incoming control, in-process checks, and final release testing.</p>
+          <h2>Typical QC Flow</h2>
+          <ul><li>Sampling per defined lot protocol</li><li>Physical tests (density, flow, sieve)</li><li>Chemical verification and moisture checks</li><li>Release only after full COA sign-off</li></ul>
+          <h2>References</h2>
+          <ul><li>ASTM powder test methods (B212/B213/B214).</li><li>ISO 9001 process control principles.</li><li>Internal SOP alignment with customer qualification requirements.</li></ul>
+        `,
+        takeaways: ["Consistency is process-driven, not inspection-only.", "Release discipline reduces field complaints.", "Traceability speeds root-cause response."]
+      },
+      "powder-metallurgy-processing": {
+        title: "Step-by-Step: Processing Copper Powder in Powder Metallurgy",
+        category: "Application Stories",
+        date: "January 18, 2026",
+        readTime: "9 min read",
+        image: "img/app-pm-parts.jpg",
+        imageAlt: "Powder metallurgy production line",
+        content: `
+          <p>PM outcomes are highly sensitive to feed behavior, compaction uniformity, and sintering atmosphere control.</p>
+          <h2>Process Sequence</h2>
+          <ul><li>Powder blending and lubricant strategy</li><li>Compaction pressure profiling</li><li>Debinding and sintering atmosphere control</li><li>Post-sinter sizing or infiltration as needed</li></ul>
+          <h2>References</h2>
+          <ul><li>German, <em>Powder Metallurgy and Particulate Materials Processing</em>.</li><li>MPIF design and process guidelines.</li><li>ASM Handbook Vol. 7 PM processing sections.</li></ul>
+        `,
+        takeaways: ["Keep feed, press, and furnace settings tightly coupled.", "Atmosphere control is a major quality driver.", "Pilot DOE cuts ramp-up time significantly."]
+      },
+      "carbon-brushes-copper": {
+        title: "Copper Powder in Carbon Brushes: Improving Conductivity & Service Life",
+        category: "Application Stories",
+        date: "January 10, 2026",
+        readTime: "7 min read",
+        image: "img/carbonbrushes.png",
+        imageAlt: "Carbon brush and electrical contact components",
+        content: `
+          <p>Copper additions in carbon-brush systems are used to tune conductivity, contact resistance, and thermal management.</p>
+          <h2>Design Trade-offs</h2>
+          <ul><li>Higher copper: lower resistivity, usually higher hardness</li><li>Lower copper: better lubricity in some duty profiles</li><li>Particle size affects compaction and brush integrity</li></ul>
+          <h2>References</h2>
+          <ul><li>Carbon brush engineering handbooks and electrical contact literature.</li><li>IEEE and tribology publications on sliding contacts.</li><li>PM processing texts for Cu-graphite composites.</li></ul>
+        `,
+        takeaways: ["Copper content should match current density and duty cycle.", "Contact resistance and wear must be optimized together.", "Grade and binder route both matter to brush life."]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get("post") || "dendritic-morphology";
+    const post = posts[key] || posts["dendritic-morphology"];
+
+    document.getElementById("crumb-title").textContent = post.title;
+    document.getElementById("post-title").textContent = post.title;
+    document.getElementById("post-category").textContent = post.category;
+    document.getElementById("post-date").textContent = post.date;
+    document.getElementById("post-read-time").textContent = post.readTime;
+    const img = document.getElementById("post-image");
+    img.src = post.image;
+    img.alt = post.imageAlt;
+    document.getElementById("post-content").innerHTML = post.content;
+    document.title = post.title + " | Arti Metal Blog";
+
+    const takeawaysEl = document.getElementById("post-takeaways");
+    takeawaysEl.innerHTML = post.takeaways.map(item => "<li>" + item + "</li>").join("");
+  })();
+</script>
+
+<footer class="footer">
+  <div class="footer-top"><div class="container"><div class="footer-grid">
+    <div class="footer-brand"><div class="logo" style="margin-bottom:1rem;"><div class="logo-icon"><img src="img/am_logo03-revised.png" alt="Arti Metal Logo" class="logo-img" /></div><div><div class="logo-text">Arti Metal</div><div class="logo-sub">A subsidiary of Roop Metals Pvt Ltd</div></div></div><p class="footer-desc">Specialized manufacturer of high-purity electrolytic copper powder. 20+ years of electrochemical expertise from Jaipur, India.</p><div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@artimetal.in</div></div>
+    <div><div class="footer-heading">Quick Links</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="applications.html">Applications</a></li><li><a href="quality.html">Quality</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="footer-heading">Products</div><ul class="footer-links"><li><a href="products.html#grade-a118">Grade A118</a></li><li><a href="products.html#grade-a123">Grade A123</a></li><li><a href="products.html#grade-a128">Grade A128</a></li><li><a href="products.html#grade-a135">Grade A135</a></li><li><a href="products.html#grade-a200">Grade A200</a></li><li><a href="products.html#grade-a210">Grade A210</a></li></ul></div>
+    <div><div class="footer-heading">Legal</div><ul class="footer-links"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li><li><a href="sitemap.html">Sitemap</a></li></ul></div>
+  </div></div></div>
+  <div class="container"><div class="footer-bottom"><p>© 2026 Arti Metal (A subsidiary of ROOP METALS PVT LTD). All rights reserved.</p><div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="sitemap.html">Sitemap</a></div></div></div>
+</footer>
+<a href="#" class="back-to-top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></a>
+<script src="js/main.js"></script>
+</body>
+</html>
