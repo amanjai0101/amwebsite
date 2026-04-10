@@ -4,8 +4,46 @@ Allow: /
 # Sitemaps
 Sitemap: https://www.artimetal.in/sitemap.xml
 
-# Crawl-delay (optional, be polite to crawlers)
+# Allow all major search engine bots explicitly
+User-agent: Googlebot
+Allow: /
 Crawl-delay: 1
 
-# Block admin/form processing paths (none here, but good practice)
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Block irrelevant paths
 Disallow: /cgi-bin/
+Disallow: /*.py$
+Disallow: /*.bak$
+Disallow: /brochure.backup.html
+
+# Allow important files
+Allow: /sitemap.xml
+Allow: /sitemap.html
+Allow: /favicon.svg
+Allow: /img/
+Allow: /css/
+Allow: /js/

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Arti Metal – Electrolytic Copper Powder Knowledge Hub</title>
+    <link>https://www.artimetal.in/blog.html</link>
+    <description>Technical insights, application guides, and industry knowledge on electrolytic copper powder from Arti Metal, Jaipur, India – manufacturer and exporter of high-purity dendritic copper powder.</description>
+    <language>en-IN</language>
+    <copyright>Copyright 2026 Arti Metal</copyright>
+    <managingEditor>info@artimetal.in (Arti Metal)</managingEditor>
+    <webMaster>info@artimetal.in (Arti Metal)</webMaster>
+    <lastBuildDate>Thu, 10 Apr 2026 09:00:00 +0530</lastBuildDate>
+    <atom:link href="https://www.artimetal.in/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://www.artimetal.in/img/am_logo03-removebg-preview.png</url>
+      <title>Arti Metal</title>
+      <link>https://www.artimetal.in/</link>
+    </image>
+
+    <item>
+      <title>Understanding Dendritic Morphology in Electrolytic Copper Powder</title>
+      <link>https://www.artimetal.in/blog-post.html</link>
+      <description>When you look at electrolytic copper powder under a microscope, you see a tree-like branching structure called dendritic morphology. This is the key to why electrolytic copper powder outperforms atomized powder in friction materials, powder metallurgy, diamond tools, and carbon brushes.</description>
+      <pubDate>Sun, 15 Mar 2026 09:00:00 +0530</pubDate>
+      <dc:creator>Arti Metal Technical Team</dc:creator>
+      <category>Technical Guides</category>
+      <guid isPermaLink="true">https://www.artimetal.in/blog-post.html</guid>
+    </item>
+
+    <item>
+      <title>Complete Guide to Copper Powder in Friction Materials</title>
+      <link>https://www.artimetal.in/blog.html</link>
+      <description>Copper powder plays four critical roles in friction materials: thermal management (401 W/m·K conductivity), friction film formation (μ = 0.35–0.45), structural reinforcement, and noise dampening. Learn which grades work best for automotive, railway, and industrial brake applications.</description>
+      <pubDate>Sun, 08 Mar 2026 09:00:00 +0530</pubDate>
+      <dc:creator>Arti Metal Technical Team</dc:creator>
+      <category>Application Stories</category>
+      <guid isPermaLink="false">artimetal-blog-friction-materials-2026</guid>
+    </item>
+
+    <item>
+      <title>Copper Powder in Carbon Brushes: Improving Conductivity and Service Life</title>
+      <link>https://www.artimetal.in/blog.html</link>
+      <description>Electrolytic copper powder (10–80% Cu) in carbon brush formulations dramatically reduces contact resistance, improves thermal management, and provides structural integrity. Dendritic particles interlock with graphite for superior bonding in motors, generators, and slip ring assemblies.</description>
+      <pubDate>Fri, 10 Jan 2026 09:00:00 +0530</pubDate>
+      <dc:creator>Arti Metal Technical Team</dc:creator>
+      <category>Application Stories</category>
+      <guid isPermaLink="false">artimetal-blog-carbon-brushes-2026</guid>
+    </item>
+
+    <item>
+      <title>Choosing the Right Copper Powder Grade for Your Application</title>
+      <link>https://www.artimetal.in/blog.html</link>
+      <description>With six precision grades from A118 to A210, selecting the right electrolytic copper powder requires understanding apparent density, flowability, surface area, and application requirements. This guide walks through the decision criteria for each grade.</description>
+      <pubDate>Sat, 01 Mar 2026 09:00:00 +0530</pubDate>
+      <dc:creator>Arti Metal Technical Team</dc:creator>
+      <category>Technical Guides</category>
+      <guid isPermaLink="false">artimetal-blog-grade-selection-2026</guid>
+    </item>
+
+    <item>
+      <title>Quality Testing Standards for Metal Powders: IS vs ASTM Explained</title>
+      <link>https://www.artimetal.in/blog.html</link>
+      <description>IS 4848, IS 4840, IS 460, IS 440 and their ASTM equivalents B212, B213, B214, E53 – understanding what these standards mean, how tests are performed, and how to read a Certificate of Analysis for copper powder quality assurance.</description>
+      <pubDate>Sun, 15 Feb 2026 09:00:00 +0530</pubDate>
+      <dc:creator>Arti Metal Technical Team</dc:creator>
+      <category>Quality &amp; Testing</category>
+      <guid isPermaLink="false">artimetal-blog-quality-standards-2026</guid>
+    </item>
+
+  </channel>
+</rss>
