@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,13 +36,27 @@
     <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </header>
-<div class="mobile-nav">
-  <button class="mobile-nav-close">✕</button>
-  <a href="index.html" class="mobile-nav-link">Home</a><a href="about.html" class="mobile-nav-link">About Us</a>
-  <a href="products.html" class="mobile-nav-link">Products</a><a href="applications.html" class="mobile-nav-link">Applications</a>
-  <a href="quality.html" class="mobile-nav-link">Quality</a><a href="resources.html" class="mobile-nav-link">Resources</a>
-  <a href="blog.html" class="mobile-nav-link">Blog</a><a href="contact.html" class="mobile-nav-link">Contact</a>
-  <a href="quote.html" class="mobile-nav-link" style="color:var(--copper);font-weight:700;">Request Quote →</a>
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu">
+  <div class="mobile-nav-header">
+    <div class="mobile-nav-logo">
+      <div class="logo-icon"><img src="img/am_logo03-revised.png" alt="Arti Metal" class="logo-img"/></div>
+      <span class="logo-text" style="color:var(--navy);">Arti Metal</span>
+    </div>
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="about.html" class="mobile-nav-link">About Us</a>
+  <a href="products.html" class="mobile-nav-link">Products</a>
+  <a href="applications.html" class="mobile-nav-link">Applications</a>
+  <a href="quality.html" class="mobile-nav-link">Quality</a>
+  <a href="resources.html" class="mobile-nav-link">Resources</a>
+  <a href="blog.html" class="mobile-nav-link">Blog</a>
+  <a href="contact.html" class="mobile-nav-link">Contact</a>
+  <a href="quote.html" class="mobile-nav-link mobile-nav-cta">Request Quote</a>
 </div>
 
 <section class="page-hero">
@@ -68,7 +82,7 @@
         </div>
 
         <!-- Blog Posts Grid -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;" id="blog-grid">
+        <div class="blog-posts-grid" id="blog-grid">
 
           <div class="blog-card reveal" data-category="technical">
             <img src="img/sem-dendritic.png" alt="Dendritic Morphology SEM" class="blog-card-real-img" loading="lazy" />

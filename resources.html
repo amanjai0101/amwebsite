@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,13 +37,27 @@
     <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </header>
-<div class="mobile-nav">
-  <button class="mobile-nav-close">✕</button>
-  <a href="index.html" class="mobile-nav-link">Home</a><a href="about.html" class="mobile-nav-link">About Us</a>
-  <a href="products.html" class="mobile-nav-link">Products</a><a href="applications.html" class="mobile-nav-link">Applications</a>
-  <a href="quality.html" class="mobile-nav-link">Quality</a><a href="resources.html" class="mobile-nav-link">Resources</a>
-  <a href="blog.html" class="mobile-nav-link">Blog</a><a href="contact.html" class="mobile-nav-link">Contact</a>
-  <a href="quote.html" class="mobile-nav-link" style="color:var(--copper);font-weight:700;">Request Quote →</a>
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu">
+  <div class="mobile-nav-header">
+    <div class="mobile-nav-logo">
+      <div class="logo-icon"><img src="img/am_logo03-revised.png" alt="Arti Metal" class="logo-img"/></div>
+      <span class="logo-text" style="color:var(--navy);">Arti Metal</span>
+    </div>
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="about.html" class="mobile-nav-link">About Us</a>
+  <a href="products.html" class="mobile-nav-link">Products</a>
+  <a href="applications.html" class="mobile-nav-link">Applications</a>
+  <a href="quality.html" class="mobile-nav-link">Quality</a>
+  <a href="resources.html" class="mobile-nav-link">Resources</a>
+  <a href="blog.html" class="mobile-nav-link">Blog</a>
+  <a href="contact.html" class="mobile-nav-link">Contact</a>
+  <a href="quote.html" class="mobile-nav-link mobile-nav-cta">Request Quote</a>
 </div>
 
 
@@ -135,7 +149,7 @@
       <!-- PM GUIDE -->
       <div class="feature-card reveal">
         <h3 style="color:var(--navy);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;"><span class="app-function-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></span> Powder Metallurgy Processing</h3>
-        <div class="grid-3" style="gap:1.5rem;">
+        <div class="grid-3 guide-grid" style="gap:1.5rem;">
           <div>
             <h4 style="color:var(--copper-dark);margin-bottom:0.75rem;">Mixing Protocol</h4>
             <ul class="list-dot">
@@ -169,7 +183,7 @@
       <!-- FRICTION GUIDE -->
       <div class="feature-card reveal">
         <h3 style="color:var(--navy);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;"><span class="app-function-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span> Friction Materials Processing</h3>
-        <div class="grid-2" style="gap:1.5rem;">
+        <div class="grid-2 guide-grid" style="gap:1.5rem;">
           <div>
             <h4 style="color:var(--copper-dark);margin-bottom:0.75rem;">Resin-Bonded Pads</h4>
             <ul class="list-dot">
@@ -194,7 +208,7 @@
       <!-- DIAMOND TOOLS GUIDE -->
       <div class="feature-card reveal">
         <h3 style="color:var(--navy);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;"><span class="app-function-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> Diamond Tool Processing</h3>
-        <div class="grid-3" style="gap:1.5rem;">
+        <div class="grid-3 guide-grid" style="gap:1.5rem;">
           <div>
             <h4 style="color:var(--copper-dark);margin-bottom:0.75rem;">Matrix Formulation</h4>
             <ul class="list-dot">
@@ -276,7 +290,7 @@
       <div class="copper-line copper-line-center"></div>
       <p class="section-subtitle">Download our technical documentation. Contact us to receive the latest versions by email.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;max-width:800px;margin-left:auto;margin-right:auto;">
+    <div class="downloads-grid" style="margin-top:2rem;max-width:800px;margin-left:auto;margin-right:auto;">
       <div class="download-card reveal">
         <div class="download-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
         <div class="download-info"><div class="download-title">Product Catalogue 2026</div><div class="download-desc">Complete 10-page catalogue — all 6 grades, specs, applications, test methods, reference tables</div></div>

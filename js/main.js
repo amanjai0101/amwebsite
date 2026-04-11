@@ -24,17 +24,41 @@ document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.querySelector('.hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileClose = document.querySelector('.mobile-nav-close');
+  const overlay = document.getElementById('mobile-nav-overlay');
+
+  function openMobileNav() {
+    if (!mobileNav) return;
+    mobileNav.classList.add('open');
+    hamburger && hamburger.classList.add('active');
+    overlay && overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileNav() {
+    if (!mobileNav) return;
+    mobileNav.classList.remove('open');
+    hamburger && hamburger.classList.remove('active');
+    overlay && overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   if (hamburger && mobileNav) {
     hamburger.addEventListener('click', () => {
-      mobileNav.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      if (mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
     });
     if (mobileClose) mobileClose.addEventListener('click', closeMobileNav);
+    // Close on link click
     mobileNav.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMobileNav));
-  }
-  function closeMobileNav() {
-    mobileNav.classList.remove('open');
-    document.body.style.overflow = '';
+    // Close on backdrop click
+    if (overlay) overlay.addEventListener('click', closeMobileNav);
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMobileNav();
+    });
   }
 
   // ── Active nav link ─────────────────────────

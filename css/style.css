@@ -118,8 +118,8 @@ p { color: var(--gray-dark); line-height: 1.75; }
 .hamburger { display: none; flex-direction: column; gap: 5px; padding: 0.5rem; cursor: pointer; }
 .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
 .header.scrolled .hamburger span { background: var(--dark); }
-.mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; padding: 5rem 2rem 2rem; overflow-y: auto; transform: translateX(100%); transition: transform 0.35s ease; }
-.mobile-nav.open { transform: translateX(0); }
+.mobile-nav { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; padding: 4.5rem 1.5rem 2rem; overflow-y: auto; transform: translateX(100%); transition: transform 0.35s ease; display: block; pointer-events: none; }
+.mobile-nav.open { transform: translateX(0); pointer-events: all; }
 .mobile-nav-link { display: block; padding: 1rem 0; font-size: 1.1rem; font-weight: 500; color: var(--dark); border-bottom: 1px solid var(--gray-light); }
 .mobile-nav-link:hover { color: var(--copper); }
 .mobile-nav-close { position: absolute; top: 1.25rem; right: 1.5rem; font-size: 1.5rem; color: var(--dark); background: none; border: none; cursor: pointer; }
@@ -433,7 +433,7 @@ select.form-control { appearance: none; background-image: url("data:image/svg+xm
   .nav { display: none; }
   .hamburger { display: flex; }
   .hero { min-height: auto; padding: 7rem 0 4rem; }
-  .hero-visual { display: none; }
+  /* hero-visual is now shown on mobile — see mobile hero section below */
   .grid-2, .grid-3, .grid-6 { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .form-grid { grid-template-columns: 1fr; }
@@ -548,7 +548,7 @@ select.form-control { appearance: none; background-image: url("data:image/svg+xm
   .nav { display: none; }
   .hamburger { display: flex; }
   .hero > .container { grid-template-columns: 1fr; padding-top: 7rem; }
-  .hero-visual { display: none; }
+  /* hero-visual shown on mobile — see mobile hero section */
   .grid-2, .grid-3, .grid-6 { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr; }
@@ -863,3 +863,1158 @@ select.form-control { appearance: none; background-image: url("data:image/svg+xm
 .product-img-contain-sm { padding: 0.3rem; }
 .grade-card-powder { transform: translate(-50%, -50%) scale(1.32); }
 .grade-detail-img-panel .grade-card-powder { transform: translate(-50%, -50%) scale(1.25); }
+
+
+/* ============================================================
+   COMPREHENSIVE MOBILE RESPONSIVE FIXES
+   Breakpoints: 1024px (tablet), 768px (mobile), 480px (small)
+   ============================================================ */
+
+/* ── MOBILE NAV FIX — must be display:block to work with transform ── */
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: block !important; /* override display:none — transform handles visibility */
+  }
+  /* Hamburger active state — animate to X */
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .hamburger span { transition: transform 0.3s ease, opacity 0.3s ease; }
+}
+
+/* ── HEADER ── */
+@media (max-width: 768px) {
+  .header-inner { padding: 0.75rem 1rem; }
+  .logo-text { font-size: 1.2rem; }
+  .logo-sub { display: none; } /* hide subtitle on mobile */
+  .logo-icon { width: 38px; height: 38px; }
+  .logo-icon img { width: 100%; height: 100%; }
+  .hamburger { display: flex; }
+  .nav { display: none; }
+}
+
+/* ── HERO — fix inline grid ── */
+@media (max-width: 768px) {
+  /* Override the inline style grid on hero */
+  .hero > .container,
+  .hero .container > div[style*="grid-template-columns:1fr 1fr"],
+  .hero .container > div[style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    padding-top: 5.5rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .hero { min-height: auto; }
+  .hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  .hero-sub { font-size: 1rem; }
+  .hero-label { font-size: 0.72rem; }
+  .hero-trust { gap: 0.75rem; }
+  .trust-item { font-size: 0.8rem; }
+  .hero-actions { flex-direction: column; gap: 0.75rem; }
+  .hero-actions .btn { width: 100%; justify-content: center; text-align: center; }
+}
+
+/* ── PAGE HERO ── */
+@media (max-width: 768px) {
+  .page-hero { padding: 5.5rem 0 2.5rem; }
+  .page-hero h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .page-hero p { font-size: 0.95rem; }
+}
+
+/* ── SECTIONS ── */
+@media (max-width: 768px) {
+  .section { padding: 3rem 0; }
+  .section-sm { padding: 2rem 0; }
+  .section-lg { padding: 4rem 0; }
+  .container { padding: 0 1rem; }
+  h2.section-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+}
+
+/* ── GRIDS — all collapse to 1 column on mobile ── */
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4, .grid-6 { grid-template-columns: 1fr !important; }
+  .g2, .g3, .g4, .g5050, .g6040, .g4060 { grid-template-columns: 1fr !important; }
+  /* 2-col grids that should stay 2-col on mobile */
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem; }
+  .form-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── INLINE STYLE GRIDS — override common patterns ── */
+@media (max-width: 768px) {
+  /* About page company overview */
+  div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  /* 3-col grids */
+  div[style*="grid-template-columns:1fr 1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr 1fr"],
+  div[style*="grid-template-columns:repeat(3,1fr)"],
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  /* 4-col grids */
+  div[style*="grid-template-columns:repeat(4,1fr)"],
+  div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  /* 60/40 and similar splits */
+  div[style*="grid-template-columns:60%"],
+  div[style*="grid-template-columns: 60%"],
+  div[style*="grid-template-columns:38%"],
+  div[style*="grid-template-columns: 38%"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* ── STATS BAR ── */
+@media (max-width: 768px) {
+  .stats-bar { padding: 2rem 0; }
+  .stat-number { font-size: 2rem; }
+  .stat-label { font-size: 0.8rem; }
+}
+
+/* ── FEATURE CARDS ── */
+@media (max-width: 768px) {
+  .feature-card { padding: 1.25rem; }
+  .card-body { padding: 1.25rem; }
+}
+
+/* ── APPLICATION TABS ── */
+@media (max-width: 768px) {
+  .app-tab-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    scrollbar-width: none;
+  }
+  .app-tab-nav::-webkit-scrollbar { display: none; }
+  .app-tab-btn {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    white-space: nowrap;
+  }
+  .app-tab-btn svg { display: none; } /* hide icons in tabs on mobile */
+  .app-detail-grid { grid-template-columns: 1fr !important; gap: 1.5rem; }
+  .app-real-img { height: 200px; }
+  .app-icon-placeholder { height: 180px; }
+}
+
+/* ── GRADE TABS (Products page) ── */
+@media (max-width: 768px) {
+  .grade-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.4rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--gray-light);
+    scrollbar-width: none;
+  }
+  .grade-tabs::-webkit-scrollbar { display: none; }
+  .grade-tab-btn {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    white-space: nowrap;
+    border-radius: 50px;
+    border: 2px solid var(--gray-light);
+    margin-bottom: 0;
+  }
+  .grade-tab-btn.active {
+    border-color: var(--copper);
+    background: var(--copper);
+    color: var(--white);
+  }
+  .grade-detail-grid { grid-template-columns: 1fr !important; gap: 1.5rem; }
+  .grade-detail-img-panel { height: 200px; }
+  .grade-top-info-card { padding: 1rem; }
+  .grade-top-info-code { font-size: 2rem; }
+  .grade-detail-image-card { height: 180px; }
+}
+
+/* ── TABLES ── */
+@media (max-width: 768px) {
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+  }
+  table { font-size: 0.8rem; min-width: 500px; }
+  thead th { padding: 0.65rem 0.75rem; font-size: 0.75rem; }
+  tbody td { padding: 0.6rem 0.75rem; }
+}
+
+/* ── CONTACT PAGE ── */
+@media (max-width: 768px) {
+  .contact-info-card { padding: 1.5rem; margin-bottom: 1.5rem; height: auto; }
+  .contact-form-card { padding: 1.5rem; }
+  .contact-info-item { gap: 0.75rem; margin-bottom: 1.25rem; }
+  /* Override inline grid on contact page */
+  .contact-page-grid,
+  div[style*="grid-template-columns:1fr 1fr"][style*="gap:3rem"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* ── QUOTE PAGE ── */
+@media (max-width: 768px) {
+  /* Quote layout sidebar collapses below form */
+  div[style*="grid-template-columns:1fr 320px"],
+  div[style*="grid-template-columns: 1fr 320px"],
+  div[style*="grid-template-columns:1fr 340px"],
+  div[style*="grid-template-columns: 1fr 340px"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* ── BLOG LAYOUT ── */
+@media (max-width: 768px) {
+  .blog-layout { grid-template-columns: 1fr !important; gap: 2rem; }
+  .blog-sidebar { position: static; }
+  /* Blog grid 2-col → 1-col */
+  #blog-grid,
+  div[style*="grid-template-columns:1fr 1fr"][id="blog-grid"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── FOOTER ── */
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 2rem; }
+  .footer-top { padding: 2.5rem 0 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 0.75rem; }
+  .footer-bottom-links { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+  .social-links { justify-content: flex-start; }
+}
+
+/* ── PROCESS STEPS ── */
+@media (max-width: 768px) {
+  .process-steps { grid-template-columns: 1fr 1fr !important; gap: 1.5rem; }
+  .process-steps::before { display: none; }
+  .step-number { width: 44px; height: 44px; font-size: 1.1rem; }
+}
+
+/* ── CTA SECTION ── */
+@media (max-width: 768px) {
+  .cta-section { padding: 3rem 0; }
+  .cta-section h2 { font-size: 1.5rem; }
+  .cta-actions { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .cta-actions .btn { width: 100%; max-width: 320px; justify-content: center; }
+}
+
+/* ── ABOUT PAGE — inline grids ── */
+@media (max-width: 768px) {
+  /* Mission/Vision cards */
+  .mv-card { padding: 1.25rem; }
+  /* Why choose us grid */
+  .grid-3.mt-4 { grid-template-columns: 1fr !important; }
+}
+
+/* ── QUALITY PAGE ── */
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr !important; }
+  .coa-preview { padding: 1.25rem; }
+  .coa-sig { flex-direction: column; gap: 0.5rem; }
+}
+
+/* ── RESOURCES PAGE ── */
+@media (max-width: 768px) {
+  .download-card { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1rem; }
+  .download-card .btn { align-self: flex-start; }
+  /* Application guides grid */
+  .grid-3[style], .grid-2[style] { grid-template-columns: 1fr !important; }
+}
+
+/* ── SITEMAP PAGE ── */
+@media (max-width: 768px) {
+  .sitemap-grid { grid-template-columns: 1fr 1fr !important; gap: 1.5rem; }
+  .sitemap-links { grid-template-columns: 1fr !important; }
+}
+
+/* ── BACK TO TOP ── */
+@media (max-width: 768px) {
+  .back-to-top { bottom: 1.25rem; right: 1.25rem; width: 40px; height: 40px; }
+}
+
+/* ── SMALL PHONES (480px) ── */
+@media (max-width: 480px) {
+  .container { padding: 0 0.875rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem; }
+  .stat-number { font-size: 1.75rem; }
+  .section { padding: 2.5rem 0; }
+  .page-hero { padding: 5rem 0 2rem; }
+  .page-hero h1 { font-size: 1.5rem; }
+  .feature-card { padding: 1rem; }
+  .grade-card-footer { flex-direction: column; gap: 0.5rem; }
+  .grade-card-footer .btn { width: 100%; justify-content: center; }
+  .sitemap-grid { grid-template-columns: 1fr !important; }
+  .footer-bottom-links { flex-direction: column; align-items: center; gap: 0.5rem; }
+  /* Buttons full width on very small screens */
+  .btn-lg { padding: 0.875rem 1.5rem; font-size: 0.95rem; }
+  /* Hero trust items wrap nicely */
+  .hero-trust { gap: 0.5rem; }
+  .trust-item { font-size: 0.75rem; }
+  /* Process steps 1 col on very small */
+  .process-steps { grid-template-columns: 1fr !important; }
+}
+
+/* ── TABLET (768px - 1024px) ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem; }
+  .blog-layout { grid-template-columns: 1fr !important; }
+  .blog-sidebar { position: static; }
+  .grade-detail-grid { grid-template-columns: 1fr !important; gap: 2rem; }
+  .app-detail-grid { grid-template-columns: 1fr !important; gap: 2rem; }
+  .hero > .container > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .process-steps { grid-template-columns: repeat(2, 1fr) !important; }
+  .process-steps::before { display: none; }
+}
+
+/* ── TOUCH IMPROVEMENTS ── */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .nav-link, .mobile-nav-link { min-height: 44px; display: flex; align-items: center; }
+  .btn { min-height: 44px; }
+  .faq-question { min-height: 48px; }
+  .app-tab-btn { min-height: 40px; }
+  .grade-tab-btn { min-height: 40px; }
+  /* Remove hover transforms on touch */
+  .card:hover { transform: none; }
+  .feature-card:hover { transform: none; }
+  .btn-primary:hover { transform: none; }
+  .btn-secondary:hover { transform: none; }
+}
+
+/* ── PREVENT HORIZONTAL SCROLL ── */
+html, body { overflow-x: hidden; max-width: 100vw; }
+.hero, .page-hero, .stats-bar, .section, .cta-section, .footer { overflow-x: hidden; }
+
+/* ── HERO GRID (replaces inline style) ── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding-top: 5.5rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* ── MOBILE NAV IMPROVEMENTS ── */
+.mobile-nav {
+  box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+}
+/* Overlay backdrop when mobile nav is open */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.mobile-nav-overlay.active {
+  display: block;
+  opacity: 1;
+}
+/* Mobile nav header */
+.mobile-nav-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-light);
+  background: var(--white);
+}
+.mobile-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.mobile-nav-logo .logo-icon {
+  width: 36px;
+  height: 36px;
+}
+.mobile-nav-logo .logo-text {
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+.mobile-nav-close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gray-pale);
+  font-size: 1.1rem;
+  color: var(--dark);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+.mobile-nav-close:hover { background: var(--copper-pale); color: var(--copper); }
+/* Mobile nav links */
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dark);
+  border-bottom: 1px solid var(--gray-light);
+  transition: var(--transition);
+}
+.mobile-nav-link:hover, .mobile-nav-link.active { color: var(--copper); }
+.mobile-nav-link:last-child { border-bottom: none; }
+/* Mobile CTA button */
+.mobile-nav-cta {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 0.875rem 1.5rem;
+  background: var(--copper);
+  color: var(--white) !important;
+  border-radius: var(--radius);
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  border-bottom: none !important;
+}
+.mobile-nav-cta:hover { background: var(--copper-dark) !important; }
+
+
+/* ============================================================
+   MOBILE OVERFLOW & CLIPPING FIXES — targeted per screenshot
+   ============================================================ */
+
+/* ── ROOT FIX: prevent any element from exceeding viewport ── */
+* { max-width: 100%; }
+img, video, iframe, svg { max-width: 100%; height: auto; }
+
+/* ── HERO: remove overflow:hidden that clips content ── */
+.hero { overflow: visible; }
+
+/* ── HOME: hero image area — show a simple bg on mobile instead ── */
+@media (max-width: 768px) {
+  .hero { overflow: hidden; min-height: auto; }
+  .hero-grid { overflow: hidden; }
+  /* The hero visual is hidden, show a subtle bg gradient instead */
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(26,39,68,0.6), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+/* ── PRODUCTS PAGE: grade detail layout ── */
+@media (max-width: 768px) {
+  /* The grade-detail-grid uses inline style on products.html — force single col */
+  .grade-detail-grid,
+  .grade-detail-grid[style] {
+    display: block !important;
+  }
+  .grade-detail-grid > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+  /* Top info card */
+  .grade-top-info-card {
+    padding: 1rem !important;
+    margin-bottom: 0.75rem;
+  }
+  .grade-top-info-code { font-size: 2rem !important; }
+  /* Image card */
+  .grade-detail-image-card {
+    height: 200px !important;
+    margin-bottom: 1rem;
+  }
+  /* List items — prevent text overflow */
+  .list-check li,
+  .list-dot li,
+  .cl-list li {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+  /* Highlight box */
+  .highlight-box, .info-box, .warning-box, .hl, .hlt {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  /* Spec rows */
+  .spec-row {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .spec-value { text-align: right; }
+}
+
+/* ── APPLICATIONS PAGE: text overflow in function items ── */
+@media (max-width: 768px) {
+  .app-function-item {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  .app-function-text {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+  }
+  .app-function-title {
+    word-break: break-word;
+  }
+  /* App detail grid right column — prevent overflow */
+  .app-detail-grid > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+  /* List items in app panels */
+  .list-dot li {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+}
+
+/* ── TABLES: proper horizontal scroll on ALL pages ── */
+@media (max-width: 768px) {
+  .table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  /* Remove min-width from tables so they can shrink */
+  table {
+    min-width: unset !important;
+    font-size: 0.78rem !important;
+  }
+  thead th {
+    padding: 0.5rem 0.6rem !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 0.5rem 0.6rem !important;
+    font-size: 0.78rem !important;
+    word-break: break-word;
+  }
+  /* Sieve analysis table — allow wrapping in cells */
+  .table-wrap table td,
+  .table-wrap table th {
+    white-space: normal;
+  }
+  /* But keep header cells from wrapping too aggressively */
+  .table-wrap table thead th {
+    white-space: nowrap;
+  }
+}
+
+/* ── BLOG PAGE: filter tabs + cards ── */
+@media (max-width: 768px) {
+  /* Filter tab nav — horizontal scroll */
+  .app-tab-nav,
+  div[style*="margin-bottom:2rem"] .app-tab-nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0.4rem !important;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  .app-tab-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 0.78rem !important;
+    padding: 0.45rem 0.85rem !important;
+  }
+  /* Blog grid — single column */
+  #blog-grid {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+  }
+  /* Blog card — prevent overflow */
+  .blog-card {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .blog-card-real-img,
+  .blog-card-img,
+  .blog-card-img-placeholder,
+  .blog-card-icon-placeholder {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .blog-card-title {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+  .blog-card-excerpt {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .blog-meta {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  /* Sidebar widgets */
+  .sidebar-widget {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  /* "Need Technical Help" dark sidebar card */
+  .sidebar-widget[style*="background:var(--navy)"],
+  .sidebar-widget[style*="background: var(--navy)"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+  .sidebar-widget .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    box-sizing: border-box;
+  }
+}
+
+/* ── RESOURCES PAGE: tables + download cards ── */
+@media (max-width: 768px) {
+  /* Feature cards with grids inside */
+  .feature-card .grid-3,
+  .feature-card .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  /* Download cards */
+  .download-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  .download-card .btn {
+    align-self: flex-start;
+  }
+  /* Info/warning boxes */
+  .info-box, .warning-box {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ── GLOBAL TEXT OVERFLOW FIX ── */
+@media (max-width: 768px) {
+  /* All text elements — prevent overflow */
+  p, li, h1, h2, h3, h4, h5, h6, span, a, td, th, label {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  /* But don't break short words unnecessarily */
+  h1, h2, h3 {
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  /* Containers — no overflow */
+  .container, .container-wide {
+    overflow: hidden;
+    max-width: 100vw;
+  }
+  /* Sections */
+  .section, .section-sm, .section-lg {
+    overflow: hidden;
+    max-width: 100vw;
+  }
+  /* Cards */
+  .card, .feature-card, .grade-card, .blog-card, .test-card {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* ── HOME PAGE: hero image missing ── */
+@media (max-width: 768px) {
+  /* Show a copper powder image as hero background on mobile */
+  .hero-bg {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 50%, #1A3A5C 100%);
+  }
+  /* Stats bar on mobile */
+  .stats-bar { padding: 1.5rem 0; }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  .stat-item { padding: 0.75rem 0.5rem; }
+  .stat-number { font-size: 1.8rem; }
+  .stat-label { font-size: 0.75rem; }
+}
+
+/* ── GRADE CARDS on home page ── */
+@media (max-width: 768px) {
+  .grade-card-img-wrap { height: 160px; }
+  .grade-card-powder {
+    width: 65% !important;
+    height: 75% !important;
+  }
+  .grade-card-body { padding: 1rem; }
+  .grade-card-footer {
+    padding: 0.75rem 1rem;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .grade-card-footer .btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ── PRODUCTS PAGE: comparison table ── */
+@media (max-width: 768px) {
+  /* Make comparison table scroll horizontally */
+  .section.bg-gray .table-wrap,
+  .section .table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  /* Grade tabs — ensure they scroll */
+  .grade-tabs {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--gray-light);
+    gap: 0.35rem !important;
+    scrollbar-width: none;
+  }
+  .grade-tabs::-webkit-scrollbar { display: none; }
+  .grade-tab-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 0.78rem !important;
+    padding: 0.45rem 0.85rem !important;
+  }
+}
+
+/* ── APPLICATIONS: recommended grades table ── */
+@media (max-width: 768px) {
+  /* All tables inside app panels */
+  .app-panel .table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: block;
+    width: 100%;
+  }
+  .app-panel table {
+    min-width: 400px;
+    font-size: 0.78rem !important;
+  }
+  /* App panel content */
+  .app-panel > .app-detail-grid > div {
+    width: 100% !important;
+    overflow: hidden;
+  }
+}
+
+/* ── PREVENT SIDEBAR OVERFLOW on blog ── */
+@media (max-width: 768px) {
+  .blog-layout {
+    display: block !important;
+    width: 100%;
+  }
+  .blog-layout > div:first-child,
+  .blog-layout > aside {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── ENSURE NO ELEMENT CAUSES HORIZONTAL SCROLL ── */
+@media (max-width: 768px) {
+  body { overflow-x: hidden !important; }
+  html { overflow-x: hidden !important; }
+  /* Fix any absolute/fixed positioned elements */
+  .hero-bg, .page-hero::after { max-width: 100vw; }
+}
+
+/* ── BLOG POSTS GRID ── */
+.blog-posts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) {
+  .blog-posts-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .blog-posts-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ── RESOURCES: application guide grids inside feature cards ── */
+@media (max-width: 768px) {
+  .feature-card > .grid-3,
+  .feature-card > div > .grid-3,
+  .feature-card > .grid-2,
+  .feature-card > div > .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  /* Troubleshooting FAQ */
+  .faq-question { font-size: 0.875rem; padding: 0.9rem 1rem; }
+  .faq-answer { padding: 0 1rem; }
+  .faq-answer.open { padding: 0 1rem 0.9rem; }
+}
+
+/* ── PRODUCTS: sieve analysis table — make it readable on mobile ── */
+@media (max-width: 768px) {
+  /* Sieve table has 4 columns — allow horizontal scroll */
+  .grade-detail .table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: block;
+    width: 100%;
+    border-radius: var(--radius);
+  }
+  .grade-detail table {
+    min-width: 320px;
+    font-size: 0.78rem !important;
+  }
+  /* Technical specs table — 2 col, fits fine */
+  .grade-detail .table-wrap:first-of-type table {
+    min-width: unset;
+  }
+}
+
+/* ── APP FUNCTION TEXT: prevent right-side clipping ── */
+@media (max-width: 768px) {
+  .app-function-item > div {
+    flex: 1;
+    min-width: 0; /* critical — allows flex child to shrink below content size */
+    overflow: hidden;
+  }
+  .app-function-text,
+  .app-function-title {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 100%;
+  }
+  /* App function icon — keep fixed size */
+  .app-fn-icon { flex-shrink: 0; }
+}
+
+/* ── LIST ITEMS: prevent right-side clipping ── */
+@media (max-width: 768px) {
+  .list-check, .list-dot, .cl-list, .app-list {
+    width: 100%;
+    overflow: hidden;
+  }
+  .list-check li,
+  .list-dot li,
+  .cl-list li,
+  .app-list li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 100%;
+    /* Flex children must be able to shrink */
+  }
+  .list-check li > *:last-child,
+  .list-dot li > *:last-child {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+/* ── HIGHLIGHT BOX: prevent overflow ── */
+@media (max-width: 768px) {
+  .highlight-box, .info-box, .hl, .hlt, .warning-box {
+    overflow: hidden;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .highlight-box p, .info-box p, .hl p, .hlt p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+  }
+}
+
+/* ── GRADE CARD FOOTER: keep buttons side by side on mobile ── */
+@media (max-width: 480px) {
+  .grade-card-footer {
+    flex-direction: row !important;
+    gap: 0.5rem;
+  }
+  .grade-card-footer .btn {
+    flex: 1;
+    font-size: 0.75rem;
+    padding: 0.45rem 0.5rem;
+    justify-content: center;
+  }
+}
+
+/* ── BLOG SIDEBAR: dark card overflow ── */
+@media (max-width: 768px) {
+  .sidebar-widget {
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .sidebar-widget p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+/* ── CONTACT PAGE: info card height ── */
+@media (max-width: 768px) {
+  .contact-info-card { height: auto !important; }
+}
+
+/* ── ENSURE FLEX CHILDREN DON'T OVERFLOW ── */
+@media (max-width: 768px) {
+  /* Any flex container — children must be able to shrink */
+  .flex, [style*="display:flex"], [style*="display: flex"] {
+    flex-wrap: wrap;
+  }
+  /* Trust items on hero */
+  .hero-trust {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .trust-item {
+    flex-shrink: 0;
+    font-size: 0.78rem;
+  }
+}
+
+/* ── DOWNLOADS GRID ── */
+.downloads-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .downloads-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+    max-width: 100% !important;
+  }
+}
+
+/* ── GUIDE GRIDS inside feature cards ── */
+@media (max-width: 768px) {
+  .guide-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* ── FIX: strong/b tags inside list items must be inline ── */
+.list-check li strong,
+.list-check li b,
+.list-dot li strong,
+.list-dot li b,
+.cl-list li strong,
+.cl-list li b,
+.app-list li strong,
+.app-list li b {
+  display: inline !important;
+  white-space: normal;
+}
+
+/* ── FIX: list item flex layout — text must wrap, not stack ── */
+.list-check li,
+.list-dot li,
+.cl-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.list-check li > *:not(:first-child),
+.list-dot li > *:not(:first-child) {
+  flex: 1;
+  min-width: 0;
+  display: inline;
+}
+/* The checkmark/bullet pseudo-element stays fixed */
+.list-check li::before,
+.list-dot li::before {
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* ── APPLICATIONS: bigger icon box, better text layout ── */
+.app-fn-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px; /* prevent shrinking */
+  background: var(--copper-pale);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--copper);
+}
+.app-fn-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* App function item — ensure text fills remaining space */
+.app-function-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  background: var(--gray-pale);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--copper);
+  margin-bottom: 1rem;
+}
+.app-function-item > div:last-child {
+  flex: 1;
+  min-width: 0; /* CRITICAL: allows text to wrap */
+}
+.app-function-title {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+.app-function-text {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.55;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .app-fn-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+  .app-fn-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  .app-function-item {
+    gap: 0.75rem;
+    padding: 0.875rem;
+  }
+}
+
+/* ── HOME HERO: show image on mobile ── */
+@media (max-width: 768px) {
+  /* Show the hero visual on mobile as a full-width image below text */
+  .hero-visual {
+    display: block !important;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .hero-card {
+    padding: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+  }
+  .hero-img-placeholder {
+    height: 220px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .hero-real-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius-lg);
+  }
+  /* Hide the stats mini-grid below the image on mobile */
+  .hero-card > div[style*="grid-template-columns:1fr 1fr"] {
+    display: none !important;
+  }
+  /* Adjust hero grid padding */
+  .hero-grid {
+    padding-top: 5rem !important;
+    padding-bottom: 2rem !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* ── DESKTOP: ensure hero visual stays as-is ── */
+@media (min-width: 769px) {
+  .hero-visual { display: block; }
+  .hero-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg); padding: 1.5rem; }
+}
